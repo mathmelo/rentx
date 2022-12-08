@@ -1,0 +1,22 @@
+{
+  "name": "rentalx",
+  "version": "1.0.0",
+  "description": "Rental API",
+  "main": "index.js",
+  "repository": "https://github.com/mathmelo/rentalx",
+  "author": "Matheus Melo <dev.matheus.melo@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
+    "commitizen": "^4.2.6",
+    "cz-conventional-changelog": "3.3.0",
+    "husky": "^8.0.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
