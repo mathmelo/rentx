@@ -23,6 +23,15 @@ class CategoriesRepository {
     this.categories.push(category);
   }
 
+  findByName(name: string): Category {
+    const category = this.categories.find(
+      (category) =>
+        category.name.toLocaleLowerCase() === name.toLocaleLowerCase()
+    );
+
+    return category;
+  }
+
   list(): Category[] {
     return this.categories;
   }
