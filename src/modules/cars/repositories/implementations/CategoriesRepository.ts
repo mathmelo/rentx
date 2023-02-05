@@ -1,49 +1,38 @@
-import { Category } from '../../model/Category';
+import { Repository } from 'typeorm';
+
+import { dataSource } from '../../../../database/data-source';
+import { Category } from '../../entities/Category';
 import {
   ICategoriesRepository,
   ICreateCategoryDTO,
 } from '../ICategoriesRepository';
 
-/**
- * GET INSTANCE ERROR. Create service está dando erro
- */
-
 class CategoriesRepository implements ICategoriesRepository {
-  private categories: Category[];
-  private static INSTANCE: CategoriesRepository;
+  private repository: Repository<Category>;
 
-  private constructor() {
-    this.categories = [];
+  constructor() {
+    this.repository = dataSource.getRepository(Category);
   }
 
-  public static getInstance(): CategoriesRepository {
-    if (!CategoriesRepository.INSTANCE) {
-      CategoriesRepository.INSTANCE = new CategoriesRepository();
-    }
-
-    return CategoriesRepository.INSTANCE;
-  }
-
-  create({ name, description, created_at }: ICreateCategoryDTO): void {
-    const category = new Category({
-      name,
+  async create({ name, description }: ICreateCategoryDTO): Promise<void> {
+    const category = this.repository.create({
       description,
-      created_at,
+      name,
     });
 
-    this.categories.push(category);
+    await this.repository.save(category);
   }
 
-  findByName(name: string): Category {
-    const category = this.categories.find(
-      (category) => category.name.toLowerCase() === name.toLowerCase()
-    );
+  async findByName(name: string): Promise<Category | null> {
+    const category = await this.repository.findOne({ where: { name } });
 
     return category;
   }
 
-  list(): Category[] {
-    return this.categories;
+  async list(): Promise<Category[]> {
+    const categories = await this.repository.find();
+
+    return categories;
   }
 }
 

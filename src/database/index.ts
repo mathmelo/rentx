@@ -1,4 +1,4 @@
-import { PostgreDataSource } from './data-source';
+import { dataSource } from './data-source';
 
 class Database {
   constructor() {
@@ -6,7 +6,8 @@ class Database {
   }
 
   init() {
-    PostgreDataSource.initialize()
+    dataSource
+      .initialize()
       .then(() => {
         console.log('> PostgreSQL Database has been connected successfully.');
       })
