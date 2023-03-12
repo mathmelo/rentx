@@ -3,32 +3,35 @@ import { v4 as uuid } from 'uuid';
 
 @Entity('users')
 class User {
-	@PrimaryColumn()
-	id?: string;
+  @PrimaryColumn()
+  id?: string;
 
-	@Column()
-	name: string;
+  @Column()
+  name: string;
 
-	@Column()
-	username: string;
+  @Column()
+  username: string;
 
-	@Column()
-	driver_license: string;
+  @Column()
+  password: string;
 
-	@Column()
-	isAdmin: boolean;
+  @Column()
+  driver_license: string;
 
-	@Column()
-	email: string;
+  @Column()
+  isAdmin: boolean;
 
-	@CreateDateColumn()
-	created_at: Date;
+  @Column()
+  email: string;
 
-	constructor() {
-		if (!this.id) {
-			this.id = uuid();
-		}
-	}
+  @CreateDateColumn()
+  created_at: Date;
+
+  constructor() {
+    if (!this.id) {
+      this.id = uuid();
+    }
+  }
 }
 
 export { User };
