@@ -38,7 +38,7 @@ class User {
   }
 
   @BeforeInsert()
-  async hashPassword() {
+  private async hashPassword() {
     this.password = await bcrypt.hash(this.password, 8);
   }
 }
