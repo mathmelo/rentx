@@ -1,12 +1,13 @@
-import { inject } from 'tsyringe';
+import { inject, injectable } from 'tsyringe';
 
 import { ICreateUserDTO } from '../../dtos/ICreateUserDTO';
 import { IUsersRepository } from '../../repositories/IUsersRepository';
 
+@injectable()
 class CreateUserService {
   constructor(
     @inject('UsersRepository')
-    private userRepository: IUsersRepository
+    private usersRepository: IUsersRepository
   ) {}
 
   async execute({
@@ -16,7 +17,7 @@ class CreateUserService {
     name,
     password,
   }: ICreateUserDTO) {
-    await this.userRepository.create({
+    await this.usersRepository.create({
       username,
       driver_license,
       email,
