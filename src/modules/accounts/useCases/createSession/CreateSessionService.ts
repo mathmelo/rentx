@@ -3,6 +3,7 @@ import { sign } from 'jsonwebtoken';
 import { inject, injectable } from 'tsyringe';
 
 import jwtConfig from '../../../../config/auth';
+import { HttpException } from '../../../../errors/HttpException';
 import { IUsersRepository } from '../../repositories/IUsersRepository';
 
 interface IRequest {
@@ -29,13 +30,13 @@ class CreateSessionService {
     const user = await this.usersRepository.findByEmail(email);
 
     if (!user) {
-      throw new Error('Email or password incorrect.');
+      throw new HttpException('Email or password incorrect.', 400);
     }
 
     const checkPassword = await compare(password, user.password);
 
     if (!checkPassword) {
-      throw new Error('Email or password incorrect.');
+      throw new HttpException('Email or password incorrect.', 400);
     }
 
     const { id, name } = user;
