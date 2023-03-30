@@ -2,6 +2,7 @@ import { inject, injectable } from 'tsyringe';
 import { UpdateResult } from 'typeorm';
 
 import { HttpException } from '../../../../errors/HttpException';
+import { deleteFile } from '../../../../util/file';
 import { IUsersRepository } from '../../repositories/IUsersRepository';
 
 @injectable()
@@ -15,6 +16,13 @@ class UpdateUserAvatarService {
 
     if (!user) {
       throw new HttpException('User not found', 400);
+    }
+
+    /**
+     * Check before using S3 to upload
+     */
+    if (user.avatar_path) {
+      await deleteFile(`./tmp/uploads/${user.avatar_path}`);
     }
 
     user.avatar_path = file_path;

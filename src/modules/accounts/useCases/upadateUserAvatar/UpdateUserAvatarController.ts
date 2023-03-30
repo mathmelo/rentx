@@ -9,7 +9,7 @@ class UpdateUserAvatarController {
 
     const updateUserAvatarService = container.resolve(UpdateUserAvatarService);
 
-    await updateUserAvatarService.execute(file.path, userId);
+    await updateUserAvatarService.execute(file.filename, userId);
 
     return response.status(204).send();
   }
