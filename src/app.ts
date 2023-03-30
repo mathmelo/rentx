@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import express, { NextFunction, Request, Response, Express } from 'express';
-import 'express-async-errors';
 import swaggerUI from 'swagger-ui-express';
+import 'express-async-errors';
 import Youch from 'youch';
 
 import './database';
@@ -45,9 +45,9 @@ export class App {
       ) => {
         if (process.env.NODE_ENV === 'development') {
           const youch = new Youch(err, request);
-          const html = await youch.toJSON();
+          const json = await youch.toJSON();
 
-          return response.send(html);
+          return response.send(json);
         }
 
         if (err instanceof HttpException) {

@@ -36,10 +36,7 @@ export async function ensureAuthenticated(
       jwtConfig.JWT_SECRET
     )) as IPayload;
 
-    Object.assign(request, {
-      ...request,
-      userId: id,
-    });
+    request.userId = id;
 
     const userRepository = new UsersRepository();
     const user = await userRepository.findById(id);

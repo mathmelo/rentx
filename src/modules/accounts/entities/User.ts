@@ -23,6 +23,9 @@ class User {
   driver_license: string;
 
   @Column()
+  avatar_path: string;
+
+  @Column()
   isAdmin: boolean;
 
   @Column()
