@@ -1,13 +1,10 @@
-import express from 'express';
-import swaggerUI from 'swagger-ui-express';
+import 'dotenv/config';
 
-import { routes } from './routes';
-import swaggerFile from './swagger.json';
+import './database';
+import './shared/container';
 
-const app = express();
+import { App } from './app';
 
-app.use(express.json());
-app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerFile));
-app.use(routes);
+const app = new App().getServer();
 
 app.listen(3333, () => console.log('> Server is running on port 3333'));
