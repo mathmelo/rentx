@@ -1,7 +1,7 @@
 import 'dotenv/config';
 
-import './database';
-import './shared/container';
+import '@database';
+import '@shared/container';
 
 import { App } from './app';
 

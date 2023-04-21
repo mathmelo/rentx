@@ -1,0 +1,7 @@
+{
+  "spec": [
+    "./src/**/*.test.ts",
+    "./src/**/*.spec.ts"
+  ]
+}
+

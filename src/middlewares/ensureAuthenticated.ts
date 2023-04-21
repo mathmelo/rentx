@@ -2,9 +2,9 @@ import type { NextFunction, Request, Response } from 'express';
 import { verify, VerifyCallback } from 'jsonwebtoken';
 import { promisify } from 'util';
 
-import jwtConfig from '../config/auth';
-import { HttpException } from '../errors/HttpException';
-import { UsersRepository } from '../modules/accounts/repositories/implementations/UsersRepository';
+import jwtConfig from '@config/auth';
+import { HttpException } from '@errors/HttpException';
+import { UsersRepository } from '@modules/accounts/repositories/implementations/UsersRepository';
 
 interface IPayload extends VerifyCallback {
   id: string;

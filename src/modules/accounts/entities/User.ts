@@ -1,11 +1,4 @@
-import bcrypt from 'bcrypt';
-import {
-  BeforeInsert,
-  Column,
-  CreateDateColumn,
-  Entity,
-  PrimaryColumn,
-} from 'typeorm';
+import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 
 @Entity('users')
@@ -38,11 +31,6 @@ class User {
     if (!this.id) {
       this.id = uuid();
     }
-  }
-
-  @BeforeInsert()
-  private async hashPassword() {
-    this.password = await bcrypt.hash(this.password, 8);
   }
 }
 

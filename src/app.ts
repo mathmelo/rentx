@@ -4,10 +4,11 @@ import swaggerUI from 'swagger-ui-express';
 import 'express-async-errors';
 import Youch from 'youch';
 
-import './database';
-import './shared/container';
+import '@database';
+import '@shared/container';
 
-import { HttpException } from './errors/HttpException';
+import { HttpException } from '@errors/HttpException';
+
 import { routes } from './routes';
 import swaggerFile from './swagger.json';
 

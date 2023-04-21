@@ -1,6 +1,8 @@
+import bcrypt from 'bcrypt';
 import { inject, injectable } from 'tsyringe';
 
-import { HttpException } from '../../../../errors/HttpException';
+import { HttpException } from '@errors/HttpException';
+
 import { ICreateUserDTO } from '../../dtos/ICreateUserDTO';
 import { IUsersRepository } from '../../repositories/IUsersRepository';
 
@@ -18,11 +20,13 @@ class CreateUserService {
       throw new HttpException('User already exists.', 400);
     }
 
+    const hashPassword = await bcrypt.hash(password, 8);
+
     await this.usersRepository.create({
       driver_license,
       email,
       name,
-      password,
+      password: hashPassword,
     });
   }
 }

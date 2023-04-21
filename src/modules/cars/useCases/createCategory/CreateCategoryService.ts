@@ -1,6 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 
-import { HttpException } from '../../../../errors/HttpException';
+import { HttpException } from '@errors/HttpException';
+
 import { ICategoriesRepository } from '../../repositories/ICategoriesRepository';
 
 interface IRequest {

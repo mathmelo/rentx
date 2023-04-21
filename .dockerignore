@@ -1,3 +1,9 @@
 node_modules
 .git
 .vscode
+
+database.png
+**/*.spec.js
+./src/__tests__/
+./src/__tests__/**/*
+coverage
