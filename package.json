@@ -8,12 +8,12 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "tsnd -r tsconfig-paths/register --transpile-only --ignore-watch node_modules --respawn src/server.ts",
+    "dev": "tsnd -r tsconfig-paths/register --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
     "dev:debbug": "tsnd -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
     "typeorm": "tsnd -r tsconfig-paths/register ./node_modules/typeorm/cli",
     "migration:create": "tsnd -r tsconfig-paths/register ./node_modules/typeorm/cli migration:create",
-    "migration:run": "tsnd -r tsconfig-paths/register ./node_modules/typeorm/cli migration:run -d ./src/database/data-source.ts",
-    "migration:revert": "tsnd -r tsconfig-paths/register ./node_modules/typeorm/cli migration:revert -d ./src/database/data-source.ts",
+    "migration:run": "tsnd -r tsconfig-paths/register ./node_modules/typeorm/cli migration:run -d ./src/shared/infra/typeorm/data-source.ts",
+    "migration:revert": "tsnd -r tsconfig-paths/register ./node_modules/typeorm/cli migration:revert -d ./src/shared/infra/typeorm/data-source.ts",
     "test": "mocha -r ts-node/register/transpile-only -r tsconfig-paths/register --parallel --config ./.mocharc.json",
     "test:coverage": "nyc yarn test"
   },

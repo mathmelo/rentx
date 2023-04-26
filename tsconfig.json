@@ -10,8 +10,6 @@
       "@config/*": ["config/*"],
       "@shared/*": ["shared/*"],
       "@util/*": ["util/*"],
-      "@errors/*": ["errors/*"],
-      "@database/*": ["database/*"],
     },                                      
     "resolveJsonModule": true,                       
     "outDir": "./dist",                                  

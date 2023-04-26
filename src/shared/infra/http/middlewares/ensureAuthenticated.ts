@@ -3,8 +3,8 @@ import { verify, VerifyCallback } from 'jsonwebtoken';
 import { promisify } from 'util';
 
 import jwtConfig from '@config/auth';
-import { HttpException } from '@errors/HttpException';
-import { UsersRepository } from '@modules/accounts/repositories/implementations/UsersRepository';
+import { UsersRepository } from '@modules/accounts/infra/typeorm/repositories/UsersRepository';
+import { HttpException } from '@shared/errors/HttpException';
 
 interface IPayload extends VerifyCallback {
   id: string;

@@ -9,14 +9,12 @@ class Database {
     dataSource
       .initialize()
       .then(() => {
-        console.log('> PostgreSQL Database has been connected successfully.');
+        console.log('> Database has been connected successfully.');
       })
       .catch((err) => {
         console.log(err);
 
-        throw new Error(
-          '> Failed to create a connection with PostgreSQL Database.'
-        );
+        throw new Error('> Failed to create a connection with database.');
       });
   }
 }

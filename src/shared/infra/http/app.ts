@@ -4,13 +4,13 @@ import swaggerUI from 'swagger-ui-express';
 import 'express-async-errors';
 import Youch from 'youch';
 
-import '@database';
+import '@shared/infra/typeorm';
 import '@shared/container';
 
-import { HttpException } from '@errors/HttpException';
+import { HttpException } from '@shared/errors/HttpException';
+import { routes } from '@shared/infra/http/routes';
 
-import { routes } from './routes';
-import swaggerFile from './swagger.json';
+import swaggerFile from '../../../swagger.json';
 
 export class App {
   private server: Express;
@@ -39,7 +39,7 @@ export class App {
   private exceptionHandler() {
     this.server.use(
       async (
-        err: Error,
+        err: Error | HttpException,
         request: Request,
         response: Response,
         next: NextFunction

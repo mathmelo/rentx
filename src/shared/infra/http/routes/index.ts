@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
-import { ensureAuthenticated } from '../middlewares/ensureAuthenticated';
+import { ensureAuthenticated } from '@shared/infra/http/middlewares/ensureAuthenticated';
+
 import { categoriesRoutes } from './categories.routes';
 import { sessionRoutes } from './session.routes';
 import { specificationsRoutes } from './specifications.routes';

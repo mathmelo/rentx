@@ -1,8 +1,5 @@
 import 'dotenv/config';
 
-import '@database';
-import '@shared/container';
-
 import { App } from './app';
 
 const app = new App().getServer();

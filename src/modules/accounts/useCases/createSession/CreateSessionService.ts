@@ -3,7 +3,7 @@ import { sign } from 'jsonwebtoken';
 import { inject, injectable } from 'tsyringe';
 
 import jwtConfig from '@config/auth';
-import { HttpException } from '@errors/HttpException';
+import { HttpException } from '@shared/errors/HttpException';
 
 import { IUsersRepository } from '../../repositories/IUsersRepository';
 

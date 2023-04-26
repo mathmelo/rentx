@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 import { UpdateResult } from 'typeorm';
 
-import { HttpException } from '@errors/HttpException';
+import { HttpException } from '@shared/errors/HttpException';
 import { deleteFile } from '@util/file';
 
 import { IUsersRepository } from '../../repositories/IUsersRepository';

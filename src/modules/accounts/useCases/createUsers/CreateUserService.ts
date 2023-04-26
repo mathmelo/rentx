@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import { inject, injectable } from 'tsyringe';
 
-import { HttpException } from '@errors/HttpException';
+import { HttpException } from '@shared/errors/HttpException';
 
 import { ICreateUserDTO } from '../../dtos/ICreateUserDTO';
 import { IUsersRepository } from '../../repositories/IUsersRepository';
