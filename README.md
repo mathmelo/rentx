@@ -24,7 +24,7 @@
 ### Regras de Negócio
 - [ ] O usuário não precisa estar logado no sistema.
 
-## **Cadastro de Especificção no Carro**
+## **Cadastro de Especificação no Carro**
 
 ### Requisitos Funcionais
 - [ ] Deve ser possível cadastrar uma especificação para um carro.
