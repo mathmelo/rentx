@@ -37,13 +37,11 @@ describe('Create category service -> ', () => {
       description: 'Category test description',
     };
 
-    async function executeServiceTwoTimes() {
-      await createCategoryService.execute({ ...category });
-      await createCategoryService.execute({ ...category });
-    }
-
-    expect(
-      executeServiceTwoTimes()
+    return expect(
+      (async () => {
+        await createCategoryService.execute({ ...category });
+        await createCategoryService.execute({ ...category });
+      })()
     ).to.eventually.be.rejected.and.be.an.instanceOf(HttpException);
   });
 });

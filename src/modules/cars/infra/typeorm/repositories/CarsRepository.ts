@@ -13,7 +13,7 @@ class CarsRepository implements ICarsRepository {
     this.carRepository = dataSource.getRepository(Car);
   }
 
-  create(data: ICreateCarDTO): Promise<void> {
+  async create(data: ICreateCarDTO): Promise<Car> {
     console.log(data);
     throw new Error('Method not implemented.');
   }

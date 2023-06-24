@@ -1,5 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 
+import { Car } from '@modules/cars/infra/typeorm/entities/Car';
 import { ICarsRepository } from '@modules/cars/repositories/ICarsRepository';
 import { HttpException } from '@shared/errors/HttpException';
 
@@ -27,7 +28,7 @@ class CreateCarService {
     license_plate,
     name,
     category_id,
-  }: IRequest): Promise<void> {
+  }: IRequest): Promise<Car> {
     const carAlreadyExists = await this.carRepository.findByLicensePlate(
       license_plate
     );
@@ -36,7 +37,7 @@ class CreateCarService {
       throw new HttpException('Car already exists', 400);
     }
 
-    await this.carRepository.create({
+    const car = await this.carRepository.create({
       brand,
       daily_rate,
       description,
@@ -45,6 +46,8 @@ class CreateCarService {
       name,
       category_id,
     });
+
+    return car;
   }
 }
 

@@ -3,13 +3,13 @@
 ## **Cadastro de Carros**
 
 ### Requisitos Funcionais
-- [ ] Deve ser possível cadastrar um novo carro.
+- [X] Deve ser possível cadastrar um novo carro.
 - [ ] Deve ser possível listar todas as categorias.
 
 ### Regras de Negócio
-- [ ] Não deve ser possível cadastrar um carro com uma placa já existente.
+- [X] Não deve ser possível cadastrar um carro com uma placa já existente.
 - [ ] Não deve ser possível alterar a placa de um carro já cadastrado.
-- [ ] O carro deve estar, por padrão, disponível logo após o cadastro.
+- [X] O carro deve estar, por padrão, disponível logo após o cadastro.
 - [ ] O usuário responsável pelo cadastro deve ser um usuário administrador.
 
 
