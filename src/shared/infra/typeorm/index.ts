@@ -1,12 +1,10 @@
-import { dataSource } from './data-source';
+import { dataSource as ds } from './data-source';
 
 class Database {
-  constructor() {
-    this.init();
-  }
+  dataSource = ds;
 
-  init() {
-    dataSource
+  async init() {
+    await this.dataSource
       .initialize()
       .then(() => {
         console.log('> Database has been connected successfully.');

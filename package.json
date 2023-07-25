@@ -15,7 +15,8 @@
     "migration:run": "tsnd ./node_modules/typeorm/cli migration:run -d ./src/shared/infra/typeorm/data-source.ts",
     "migration:revert": "tsnd ./node_modules/typeorm/cli migration:revert -d ./src/shared/infra/typeorm/data-source.ts",
     "test": "mocha -r ts-node/register/transpile-only -r tsconfig-paths/register --parallel --config ./.mocharc.json",
-    "test:coverage": "nyc yarn test"
+    "test:coverage": "nyc yarn test",
+    "seeds:admin": "tsnd ./src/shared/infra/typeorm/seeds/admin.ts"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",

@@ -4,13 +4,15 @@ import swaggerUI from 'swagger-ui-express';
 import 'express-async-errors';
 import Youch from 'youch';
 
-import '@shared/infra/typeorm';
 import '@shared/container';
 
 import { HttpException } from '@shared/errors/HttpException';
 import { routes } from '@shared/infra/http/routes';
+import database from '@shared/infra/typeorm';
 
 import swaggerFile from '../../../swagger.json';
+
+database.init();
 
 export class App {
   private server: Express;
