@@ -6,7 +6,7 @@ import { CarsRepositoryInMemory } from '@modules/cars/repositories/in-memory/Car
 import { CreateCarService } from '../createCar/CreateCarService';
 import { ListAvailableCarsService } from './ListAvailableCarsService';
 
-describe('List available cars service', () => {
+describe('List available cars service ->', () => {
   let listCarsService: ListAvailableCarsService;
   let carsRepository: CarsRepositoryInMemory;
   let createCarService: CreateCarService;

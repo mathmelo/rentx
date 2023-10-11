@@ -53,7 +53,7 @@ describe('Create Car service ->', () => {
     ).to.eventually.be.rejected.and.be.an.instanceOf(HttpException);
   });
 
-  it('should not be able to create a car with available true by default', async () => {
+  it('should be able to create a car with available true by default', async () => {
     const input = {
       name: 'Available car',
       description: 'Description Car',
