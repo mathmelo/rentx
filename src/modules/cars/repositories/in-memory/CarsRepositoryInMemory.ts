@@ -51,4 +51,8 @@ export class CarsRepositoryInMemory implements ICarsRepository {
       return filters.every(([key, value]) => car[key] === value);
     });
   }
+
+  async findById(id: string): Promise<Car | null> {
+    return this.cars.find((car) => car.id === id);
+  }
 }
