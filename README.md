@@ -31,8 +31,8 @@
 
 ### Regras de Negócio
 - [X] Não deve ser possível cadastrar uma especificação para um carro não cadastrado.
-- [ ] Não deve ser possível cadastrar uma especificação já existente para o mesmo carro.
-- [ ] O usuário responsável pelo cadastro deve ser um usuário administrador.
+- [X] Não deve ser possível cadastrar uma especificação já existente para o mesmo carro.
+- [X] O usuário responsável pelo cadastro deve ser um usuário administrador.
 
 ## **Cadastro de Imagens do Carro**
 
