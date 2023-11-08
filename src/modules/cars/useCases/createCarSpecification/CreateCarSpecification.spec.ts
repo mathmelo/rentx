@@ -3,6 +3,7 @@ import chaiAsPromised from 'chai-as-promised';
 import { beforeEach, describe, it } from 'mocha';
 
 import { CarsRepositoryInMemory } from '@modules/cars/repositories/in-memory/CarsRepositoryInMemory';
+import { SpecificationRepositoryInMemory } from '@modules/cars/repositories/in-memory/SpecificationsRepositoryInMemory';
 import { HttpException } from '@shared/errors/HttpException';
 
 import { CreateCarSpecificationService } from './CreateCarSpecificationService';
@@ -12,11 +13,14 @@ use(chaiAsPromised);
 describe('Create Car Specification', () => {
   let createCarSpecificationService: CreateCarSpecificationService;
   let carsRepositoryInMemory: CarsRepositoryInMemory;
+  let specificationsRepositoryInMemory: SpecificationRepositoryInMemory;
 
   beforeEach(() => {
     carsRepositoryInMemory = new CarsRepositoryInMemory();
+    specificationsRepositoryInMemory = new SpecificationRepositoryInMemory();
     createCarSpecificationService = new CreateCarSpecificationService(
-      carsRepositoryInMemory
+      carsRepositoryInMemory,
+      specificationsRepositoryInMemory
     );
   });
 
@@ -45,11 +49,19 @@ describe('Create Car Specification', () => {
       category_id: 'category',
     });
 
-    const specifications_id = ['54321'];
+    const specification = await specificationsRepositoryInMemory.create({
+      description: 'Test',
+      name: 'Test',
+    });
 
-    await createCarSpecificationService.execute({
+    const specifications_id = [specification.id];
+
+    const specifications_cars = await createCarSpecificationService.execute({
       car_id: car.id,
       specifications_id,
     });
+
+    expect(specifications_cars).to.have.property('specifications');
+    expect(specifications_cars.specifications.length).to.be.equal(1);
   });
 });

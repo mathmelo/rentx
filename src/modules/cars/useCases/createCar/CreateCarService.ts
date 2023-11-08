@@ -12,6 +12,7 @@ interface IRequest {
   fine_amount: number;
   category_id: string;
   brand: string;
+  id?: string;
 }
 
 @injectable()
@@ -28,6 +29,7 @@ class CreateCarService {
     license_plate,
     name,
     category_id,
+    id,
   }: IRequest): Promise<Car> {
     const carAlreadyExists = await this.carRepository.findByLicensePlate(
       license_plate
@@ -45,6 +47,7 @@ class CreateCarService {
       license_plate,
       name,
       category_id,
+      id,
     });
 
     return car;

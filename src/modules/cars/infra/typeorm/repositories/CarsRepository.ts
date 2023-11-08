@@ -7,10 +7,10 @@ import { dataSource } from '@shared/infra/typeorm/data-source';
 import { Car } from '../entities/Car';
 
 class CarsRepository implements ICarsRepository {
-  private carRepository: Repository<Car>;
+  private repository: Repository<Car>;
 
   constructor() {
-    this.carRepository = dataSource.getRepository(Car);
+    this.repository = dataSource.getRepository(Car);
   }
 
   async create({
@@ -21,8 +21,10 @@ class CarsRepository implements ICarsRepository {
     fine_amount,
     license_plate,
     name,
+    specifications,
+    id,
   }: ICreateCarDTO): Promise<Car> {
-    const car = this.carRepository.create({
+    const car = this.repository.create({
       brand,
       category_id,
       daily_rate,
@@ -30,15 +32,17 @@ class CarsRepository implements ICarsRepository {
       fine_amount,
       license_plate,
       name,
+      specifications,
+      id,
     });
 
-    await this.carRepository.save(car);
+    await this.repository.save(car);
 
     return car;
   }
 
   async findByLicensePlate(license_plate: string): Promise<Car> {
-    const car = await this.carRepository.findOneBy({
+    const car = await this.repository.findOneBy({
       license_plate,
     });
 
@@ -50,7 +54,7 @@ class CarsRepository implements ICarsRepository {
     brand?: string,
     name?: string
   ): Promise<Car[]> {
-    const carQuery = this.carRepository
+    const carQuery = this.repository
       .createQueryBuilder('c')
       .where('available = :available', { available: true });
 
@@ -69,6 +73,12 @@ class CarsRepository implements ICarsRepository {
     const allAvailableCars = await carQuery.getMany();
 
     return allAvailableCars;
+  }
+
+  async findById(id: string): Promise<Car> {
+    const car = await this.repository.findOneBy({ id });
+
+    return car;
   }
 }
 
