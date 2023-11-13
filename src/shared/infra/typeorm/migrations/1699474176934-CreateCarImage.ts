@@ -4,7 +4,7 @@ export class CreateCarImage1699474176934 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'cars_image',
+        name: 'car_images',
         columns: [
           {
             name: 'id',
@@ -40,6 +40,6 @@ export class CreateCarImage1699474176934 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('cars_image');
+    await queryRunner.dropTable('car_images');
   }
 }

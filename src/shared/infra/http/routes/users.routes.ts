@@ -8,7 +8,7 @@ import { UpdateUserAvatarController } from '@modules/accounts/useCases/upadateUs
 import { ensureAuthenticated } from '../middlewares/ensureAuthenticated';
 
 const usersRoutes = Router();
-const upload = multer(multerConfig);
+const upload = multer(multerConfig('avatar'));
 
 const createUserController = new CreateUserController();
 const updateUserAvatarController = new UpdateUserAvatarController();

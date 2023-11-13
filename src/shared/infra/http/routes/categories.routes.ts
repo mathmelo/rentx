@@ -9,7 +9,7 @@ import { ensureAdmin } from '@shared/infra/http/middlewares/ensureAdmin';
 import { ensureAuthenticated } from '@shared/infra/http/middlewares/ensureAuthenticated';
 
 const categoriesRoutes = Router();
-const upload = multer(multerConfig);
+const upload = multer(multerConfig('csv'));
 
 const createCategoryController = new CreateCategoryController();
 const importCategoryController = new ImportCategoryController();
