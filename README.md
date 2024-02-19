@@ -69,7 +69,7 @@ $ npm run migration:run
 https://localhost:3333/docs
 ```
 
-## ✅ Funcionalidades
+## ✅ Requirements
 
 Click **[here](Requirements.md)**
 
