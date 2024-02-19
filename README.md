@@ -1,57 +1,97 @@
-# Funcionalidades
+<div align="center">
+    <img src="./.github/logo.png" height="20"/>
+</div>
+<br>
+<p align="center">🚀 Car Rental API</p>
+<p align="center">
+  <img alt="NPM" src="https://img.shields.io/github/license/mathmelo/rentx">
+  <img alt="NPM" src="https://img.shields.io/github/issues/mathmelo/rentx">
+  <img alt="NPM" src="https://img.shields.io/github/forks/mathmelo/rentx">
+  <img alt="NPM" src="https://img.shields.io/github/stars/mathmelo/rentx">
+</p>
 
-## **Cadastro de Carros**
+<div align="center">
+ <a href="#-objective">objective</a> •
+ <a href="#-roadmap">roadmap</a> • 
+ <a href="#-technologies">technologies</a> • 
+ <a href="#-license">license</a> • 
+ <a href="#-author">author</a>
+</div>
 
-### Requisitos Funcionais
-- [X] Deve ser possível cadastrar um novo carro.
-- [X] Deve ser possível listar todas as categorias.
+---
 
-### Regras de Negócio
-- [X] Não deve ser possível cadastrar um carro com uma placa já existente.
-- [X] Não deve ser possível alterar a placa de um carro já cadastrado.
-- [X] O carro deve estar, por padrão, disponível logo após o cadastro.
-- [X] O usuário responsável pelo cadastro deve ser um usuário administrador.
+## 💡 Objective
+<p>RentX is a car rental API that uses a well-defined and highly modular architecture, it seeks to provide an efficient and reliable vehicle rental experience. With clear documentation provided by Swagger, RentX simplifies the rental process for users and developers.</p>
+
+## 🎌 Roadmap
+
+### Prerequisites
+Before start to develop, you will need to have the following tools installed on your machine:
+<ul>
+  <li><a href="https://git-scm.com">Git</a></li>
+  <li><a href="https://nodejs.org/en/">Node</a></li>
+  <li><a href="https://docs.docker.com/engine/install/">Docker</a></li>
+  <li><a href="https://yarnpkg.com/getting-started/install">Yarn</a></li>
+</ul>
+
+You can also use npm, but i recommend yarn.
+
+Also it's nice to have an editor to work with the code like [VSCode](https://code.visualstudio.com/).
+
+### Running the Back End (server)
+
+**🚫 Important**
+- A .env file must be created in the project's root folder containing all access keys, including  to the databases.
+- The .env.exemple file can be used as an example
+
+**Execute the commands**
+
+```bash
+# Clone this repository
+$ git clone https://github.com/mathmelo/rentx
+
+# Access the project folder in the terminal/cmd
+$ cd rentx
+
+# Execute to create all containers and run the application
+$ docker-compose up
+
+# Enter the docker container and run migrations
+$ docker exec -it bin/bash rentx
+$ npm run migration:run
 
 
-## **Listagem de Carros**
+# The server will start on port:3333 - go to <http://localhost:3335>
+```
+## 📝 Docs
 
-### Requisitos Funcionais
-- [X] Deve ser possível listar todos os carros disponíveis.
-- [X] Deve ser possível listar todos os carros disponíveis pelo nome da categoria.
-- [X] Deve ser possível listar todos os carros disponíveis pelo nome da marca.
-- [X] Deve ser possível listar todos os carros disponíveis pelo nome do carro.
+```bash
+https://localhost:3333/docs
+```
 
-### Regras de Negócio
-- [X] O usuário não precisa estar logado no sistema.
+## ✅ Funcionalidades
 
-## **Cadastro de Especificação no Carro**
+Click **[here](Requirements.md)**
 
-### Requisitos Funcionais
-- [X] Deve ser possível cadastrar uma especificação para um carro.
 
-### Regras de Negócio
-- [X] Não deve ser possível cadastrar uma especificação para um carro não cadastrado.
-- [X] Não deve ser possível cadastrar uma especificação já existente para o mesmo carro.
-- [X] O usuário responsável pelo cadastro deve ser um usuário administrador.
+## 💜 Technologies
+- Typescript
+- NodeJS
+- Express
+- Postgres
+- TypeORM
+- Docker
+- Swagger
 
-## **Cadastro de Imagens do Carro**
+## 📕 License
 
-### Requisitos Funcionais
-- [X] Deve ser possível cadastrar a imagem do carro
+Read the license [here](https://github.com/mathmelo/rentx/blob/main/LICENSE).
 
-### Requisitos Não Funcionais
-- [X] Utilizar o multer para upload dos arquivos
+## 🤓 Author
 
-### Regras de Negócio
-- [X] O usuário deve poder cadastrar mais de uma imagem para o mesmo carro
-- [X] O usuário responsável pelo cadastro deve ser um usuário administrador.
+Informations about [me](https://github.com/mathmelo).
+Send me a message! ;)
 
-## **Aluguel de Carro**
-
-### Requisitos Funcionais
-- [X] Deve ser possível cadastrar um aluguel.
-
-### Regras de Negócio
-- [X] O aluguel deve ter duração mínima de 24 horas.
-- [X] Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo usuário.
-- [X] Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo carro.
+<h4 align="center"> 
+	🚧  RentX 🚀 In construction...  🚧</br>
+</h4>
