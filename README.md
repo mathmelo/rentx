@@ -61,7 +61,7 @@ $ docker exec -it bin/bash rentx
 $ npm run migration:run
 
 
-# The server will start on port:3333 - go to <http://localhost:3335>
+# The server will start on port:3333 - go to <http://localhost:3333>
 ```
 ## 📝 Docs
 
